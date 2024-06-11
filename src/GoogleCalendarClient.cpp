@@ -14,8 +14,8 @@ bool GoogleCalendarClient::refreshEvents(int numTries, String timeMin="1969-12-3
     String request = "";
     int tries = 0;
     while(request == "" && tries++ < numTries) {
-		request = getRequest(timeMin);
-		delay(10);
+	request = getRequest(timeMin);
+	delay(10);
     }
     if(request == "") return false;
     events = JSON.parse(request);
@@ -25,7 +25,7 @@ bool GoogleCalendarClient::getAccessToken() {
 	client.setInsecure();
 	http.begin(client, authURI);
 	int code = http.GET();
-    if(code > 0) {
+	if(code > 0) {
 		JSONVar token = JSON.parse(http.getString());
 		if(token.hasOwnProperty("access_token") && token.hasOwnProperty("refresh_token")) {
 			accessToken = String(token["access_token"]);
@@ -33,10 +33,10 @@ bool GoogleCalendarClient::getAccessToken() {
 			prefs.putString("refresh_token", refreshToken);
 			return true;
 		} 
-    }
+    	}
 	accessToken = "";
-    refreshToken = "";
-    return false;
+    	refreshToken = "";
+    	return false;
 }
 bool GoogleCalendarClient::refreshAccessToken() {
     if(refreshToken == "") refreshToken = prefs.getString("refresh_token");
@@ -45,10 +45,10 @@ bool GoogleCalendarClient::refreshAccessToken() {
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     int code = http.POST("client_id=" + clientID + "&client_secret=" + clientSecret + "&grant_type=refresh_token&refresh_token=" + refreshToken);
     if(code > 0) {
-		JSONVar token = JSON.parse(http.getString());
+	JSONVar token = JSON.parse(http.getString());
         if(token.hasOwnProperty("access_token")) {
-			accessToken = String(token["access_token"]);
-			return true;
+		accessToken = String(token["access_token"]);
+		return true;
         } 
     }
     accessToken = "";
