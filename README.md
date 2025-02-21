@@ -1,6 +1,9 @@
 # GoogleCalendarClient
 Library for Arduino microcontrollers to access the Google Calendar API
 
+## Shortcomings
+This library has very limited functionality, only supporting one feature: getting a list of the events on a user's Google Calendar. Moreover, it has a very clunky process for obtaining the credentials needed to call the Google Calendar API. Finally, it is incredibly insecure, ignoring SSL certificates and simply calling `client.setInsecure();`. Therefore, contributions to the project are welcome!
+
 ## How to Use
 ### Obtaining Credentials
 Follow the steps outlined in this guide to obtain the necessary credentials to make requests to the Google Calendar API: https://lostplusfounddev.blogspot.com/2024/03/google-calendar-integrated-dashboard_28.html
@@ -28,7 +31,5 @@ To make a request to the API, do the following:
    ```
    Call this method to refresh the events on the calendar. Then, access the `JSONVar events;` property of the GoogleCalendarClient object which contains a list of the user's Google Calendar events in JSON format. Consult the [Google Calendar API reference](https://developers.google.com/calendar/api/v3/reference/events/list) for the JSON response format. Once this method returns false, the access token has become invalid, and step 1 must be repeated to either refresh the token or generate a new one.
 
-## Shortcomings
-This library has very limited functionality, only supporting one feature: getting a list of the events on a user's Google Calendar. Moreover, it has a very clunky process for obtaining the credentials needed to call the Google Calendar API. Finally, it is incredibly insecure, ignoring SSL certificates and simply calling `client.setInsecure();`. 
    
 
