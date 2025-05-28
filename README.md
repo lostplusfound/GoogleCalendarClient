@@ -6,7 +6,7 @@ This library has very limited functionality, only supporting one feature: gettin
 
 ## How to Use
 ### Obtaining Credentials
-Follow the steps outlined in this guide to obtain the necessary credentials to make requests to the Google Calendar API: https://lostplusfounddev.blogspot.com/2024/03/google-calendar-integrated-dashboard_28.html
+Guide for obtaining credentials is in progress.
 ### Using the library
 Once you have the authentication url, API key, client ID, and client secret, create the GoogleCalendarClient object.
 
