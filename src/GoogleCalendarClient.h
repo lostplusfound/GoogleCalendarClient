@@ -2,7 +2,7 @@
 #define GoogleCalendarClient_H
 
 #include "Arduino.h"
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <Arduino_JSON.h>
 #include <WiFiClientSecureBearSSL.h>
